@@ -16,13 +16,16 @@ echo "Finish creating kubernetes cluster"
 echo "current nodes: "
 ./inventory/sample/artifacts/kubectl.sh get nodes
 
-echo "** You can use the kubectl with the configuration using this script: inventory/sample/artifacts/kubectl.sh **"
-echo "** To undeploy the cluster and delete the vm's, cd into kubespray main directory and use this cmd: vagrant destroy -f **"
-
 echo "Configuring kubectl"
+sed -i "s/certificate-authority-data:.*/insecure-skip-tls-verify: true/" admin.conf
+sed -i "s/server: .*/server: https:\/\/192.168.33.204:4567/" admin.conf
 cp ./inventory/sample/artifacts/admin.conf ~/.kube/config
-kubectl -n kube-system create serviceaccount tiller
+echo "** For using kubectl from another hosts copy ~/.kube/config into ~/.kube/config at your machine **"
 
-echo "Configuring helm"
+echo "Installing and Configuring helm"
+kubectl -n kube-system create serviceaccount tiller
 kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+./installHelm.sh
 helm init --service-account tiller
+
+echo "** To undeploy the cluster and delete the vm's, make use the stop.sh script"
