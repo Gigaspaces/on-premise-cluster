@@ -8,6 +8,8 @@
 # 2.Port forwarding ?
 # 3.Configure client kubectl and helm
 
+cd kubespray-2.8.1
+
 vagrant up
 
 echo "Finish creating kubernetes cluster"
