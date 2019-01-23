@@ -61,6 +61,7 @@ else
     echo 'Creating config file and setting configuration (os = cenOS7, 1 kubeMaster and vm_memory = 8192)'
     touch ${configFile}
     echo "\$os = \"centos\" " >> $configFile
+    echo '$forwarded_ports = {6443 => 4567}' >> $configFile
     # echo "\$kube_master_instances = 1" >> $configFile
     # echo "\$vm_memory = 8192" >> $configFile
 fi
@@ -74,6 +75,3 @@ sed -i "s/, \"--ask-become-pass\"//g" Vagrantfile
 echo "Setting kubeconfig_localhost and kubectl_localhost to True for getting the kubectl configured in inventory/sample/artifacts directory"
 echo "kubeconfig_localhost: true" >> inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 echo "kubectl_localhost: true" >> inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
-
-date
-echo "Starting creating vm's and setting kubernetes cluster, this may take a couple of minutes"
