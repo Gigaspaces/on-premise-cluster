@@ -61,7 +61,7 @@ else
     echo 'Creating config file and setting configuration (os = cenOS7, 1 kubeMaster and vm_memory = 8192)'
     touch ${configFile}
     echo "\$os = \"centos\" " >> $configFile
-    echo '$forwarded_ports = {6443 => 4567}' >> $configFile
+    echo '$forwarded_ports = {6443 => 4567, 30890 => 30890}' >> $configFile
     echo '$network_plugin = \"calico\"' >> $configFile
     # echo "\$kube_master_instances = 1" >> $configFile
     # echo "\$vm_memory = 8192" >> $configFile
