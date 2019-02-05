@@ -13,14 +13,12 @@ cd kubespray-2.8.1
 vagrant up
 
 echo "Finish creating kubernetes cluster"
-echo "current nodes: "
-./inventory/sample/artifacts/kubectl.sh get nodes
 
 echo "Configuring kubectl"
 pushd ./inventory/sample/artifacts
 sed -i "s/certificate-authority-data:.*/insecure-skip-tls-verify: true/" admin.conf
 sed -i "s/server: .*/server: https:\/\/192.168.33.204:4567/" admin.conf
-cp ./inventory/sample/artifacts/admin.conf ~/.kube/config
+cp admin.conf ~/.kube/config
 echo "** For using kubectl from another hosts copy ~/.kube/config into ~/.kube/config at your machine **"
 
 echo "Installing and Configuring helm"
