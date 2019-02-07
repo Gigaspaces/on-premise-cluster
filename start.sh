@@ -25,6 +25,7 @@ echo "Installing and Configuring helm"
 kubectl -n kube-system create serviceaccount tiller
 kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
 popd
+cd ..
 ./installHelm.sh
 helm init --service-account tiller
 
