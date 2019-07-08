@@ -7,8 +7,9 @@
 # 1.Create cluster using kubespray and vagrant
 # 2.Port forwarding ?
 # 3.Configure client kubectl and helm
+source env.sh
 
-cd kubespray-2.8.1
+cd kubespray-${KUBESPRAY_VERSION}
 
 vagrant up
 

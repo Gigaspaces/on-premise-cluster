@@ -5,7 +5,8 @@
 # 
 # Description:
 # Delete kubernetes cluster and delete resources
+source env.sh
 
-cd kubespray-2.8.1
+cd kubespray-${KUBESPRAY_VERSION}
 
 vagrant destroy -f

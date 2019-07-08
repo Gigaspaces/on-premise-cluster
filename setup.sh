@@ -28,12 +28,12 @@ function ensureFileDeleted () {
         echo 'File deleted successfully'
     fi
 }
-
+source env.sh
 echo "Setup kubernetes cluster using kubespray"
 
 echo "Unzip kubespray into current directory"
-tar -xf kubespray-2.8.1.tar.gz
-cd kubespray-2.8.1
+tar -xf kubespray-${KUBESPRAY_VERSION}.tar.gz
+cd kubespray-${KUBESPRAY_VERSION}
 
 # Install dependencies from requirements.txt
 sudo pip install -r requirements.txt
