@@ -1,3 +1,3 @@
 #!/bin/bash
 
-export KUBESPRAY_VERSION=2.9.0
+export KUBESPRAY_VERSION=2.11.0
