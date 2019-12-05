@@ -68,7 +68,6 @@ else
     echo "\$vm_memory = 16384" >> $configFile
     echo "\$vm_cpus = 4" >> $configFile
     echo "\$local_path_provisioner_enabled = true" >> $configFile
-    echo "\$kube_version = v1.16.0" >> $configFile
 fi
 
 echo 'Setting download_run_once to false'
