@@ -32,6 +32,7 @@ source env.sh
 echo "Setup kubernetes cluster using kubespray"
 
 echo "Unzip kubespray into current directory"
+wget https://github.com/kubernetes-sigs/kubespray/archive/${KUBESPRAY_VERSION}.tar.gz
 tar -xf kubespray-${KUBESPRAY_VERSION}.tar.gz
 cd kubespray-${KUBESPRAY_VERSION}
 
