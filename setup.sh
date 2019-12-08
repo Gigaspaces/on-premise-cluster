@@ -32,8 +32,10 @@ source env.sh
 echo "Setup kubernetes cluster using kubespray"
 
 echo "Unzip kubespray into current directory"
-wget https://github.com/kubernetes-sigs/kubespray/archive/v${KUBESPRAY_VERSION}.tar.gz
-tar -xf v${KUBESPRAY_VERSION}.tar.gz
+if [ ! -f "v${KUBESPRAY_VERSION}.tar.gz" ]; then
+    wget https://github.com/kubernetes-sigs/kubespray/archive/v${KUBESPRAY_VERSION}.tar.gz
+fi
+tar -xf --overwrite v${KUBESPRAY_VERSION}.tar.gz
 cd kubespray-${KUBESPRAY_VERSION}
 
 # Install dependencies from requirements.txt
