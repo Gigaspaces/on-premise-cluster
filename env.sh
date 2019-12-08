@@ -1,3 +1,4 @@
 #!/bin/bash
 
 export KUBESPRAY_VERSION=2.11.0
+export KUBERNETES_VERSION=v1.15.2

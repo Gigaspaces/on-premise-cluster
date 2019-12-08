@@ -80,3 +80,4 @@ sed -i "s/, \"--ask-become-pass\"//g" Vagrantfile
 echo "Setting kubeconfig_localhost and kubectl_localhost to True for getting the kubectl configured in inventory/sample/artifacts directory"
 echo "kubeconfig_localhost: true" >> inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 echo "kubectl_localhost: true" >> inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+echo "kube_version: ${KUBERNETES_VERSION}" >> inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
