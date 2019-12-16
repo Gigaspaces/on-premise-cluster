@@ -35,7 +35,11 @@ echo "Unzip kubespray into current directory"
 if [ ! -f "v${KUBESPRAY_VERSION}.tar.gz" ]; then
     wget https://github.com/kubernetes-sigs/kubespray/archive/v${KUBESPRAY_VERSION}.tar.gz
 fi
-tar -xf --overwrite v${KUBESPRAY_VERSION}.tar.gz
+if [ -d "kubespray-${KUBESPRAY_VERSION}" ]; then
+    tar -xf --overwrite v${KUBESPRAY_VERSION}.tar.gz
+else
+    tar -xf v${KUBESPRAY_VERSION}.tar.gz
+fi
 cd kubespray-${KUBESPRAY_VERSION}
 
 # Install dependencies from requirements.txt
