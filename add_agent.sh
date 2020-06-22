@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# File: add_agent.sh
-# Author: Elad Gur
-# 
-# Description:
-# To add kubernetes agent from host(srv-1) run the following scripts: ./add_agent.sh <your agent ip>
-
 if [ "$#" -ne 1 ]; then
     echo "Illegal number of parameters"
     echo "Please enter agent ip as argumant"

@@ -1,10 +1,5 @@
 #!/bin/bash
-set -ex
-# File: setup.sh
-# Author: Elad Gur
-#
-# Description:
-# 1.Setup prerequiste for creating kubernetes cluster with kubespray and vagrant
+set -e
 
 function deleteFile() {
 	file=$1
@@ -36,10 +31,9 @@ if [ ! -f "v${KUBESPRAY_VERSION}.tar.gz" ]; then
     wget https://github.com/kubernetes-sigs/kubespray/archive/v${KUBESPRAY_VERSION}.tar.gz
 fi
 if [ -d "kubespray-${KUBESPRAY_VERSION}" ]; then
-    tar -xf --overwrite v${KUBESPRAY_VERSION}.tar.gz
-else
-    tar -xf v${KUBESPRAY_VERSION}.tar.gz
+  rm -rf kubespray-${KUBESPRAY_VERSION}
 fi
+tar -xf v${KUBESPRAY_VERSION}.tar.gz
 cd kubespray-${KUBESPRAY_VERSION}
 
 # Install dependencies from requirements.txt

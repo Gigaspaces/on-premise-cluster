@@ -1,12 +1,5 @@
 #!/bin/bash
-
-# File: start.sh
-# Author: Elad Gur
-# 
-# Description:
-# 1.Create cluster using kubespray and vagrant
-# 2.Port forwarding ?
-# 3.Configure client kubectl and helm
+set -e
 source env.sh
 
 cd kubespray-${KUBESPRAY_VERSION}
